@@ -12,14 +12,19 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/persons/by-city")
+@RequestMapping("/persons")
 public class ControllerPerson {
 
     private RepositoryInterface repositoryPerson;
 
-    @GetMapping
+    @GetMapping("/by-city") //localhost:8080/persons/by-city?city=Moscow
     public List<Person> getPersonsByCity(@RequestParam(value = "city", required = false) String city) {
-        System.out.println(city);
         return repositoryPerson.getPersonsByCity(city);
     }
+
+    @GetMapping("/by-name") //localhost:8080/persons/by-name?city=Moscow
+    public List<String> getPersonsNameByCity(@RequestParam(value = "city", required = false) String city) {
+        return repositoryPerson.getPersonsNameByCity(city);
+    }
+
 }

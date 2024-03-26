@@ -16,9 +16,17 @@ public class RepositoryPerson implements RepositoryInterface {
     @Override
     @Transactional
     public List<Person> getPersonsByCity(String city) {
-        return entityManager.createQuery("select p from Person p where p.city_of_living = ?1")
+        return entityManager.createQuery("select p.dataPerson from Person p where p.city_of_living = ?1")
                 .setParameter(1, city)
                 .getResultList();
+    }
+
+    @Override
+    public List<String> getPersonsNameByCity(String city) {
+       return entityManager.createQuery("select p.dataPerson.name from Person p where p.city_of_living = ?1")
+                .setParameter(1, city)
+                .getResultList();
+
     }
 
 }
