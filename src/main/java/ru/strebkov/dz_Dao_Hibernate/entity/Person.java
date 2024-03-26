@@ -16,9 +16,9 @@ import lombok.*;
 public class Person {
     @EmbeddedId
     private DataPerson dataPerson;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String phone_number;
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, length = 100)
     private String city_of_living;
 
 
