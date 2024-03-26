@@ -3,6 +3,7 @@ package ru.strebkov.dz_Dao_Hibernate.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Data
@@ -11,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(schema = "migration")
 public class Person {
     @EmbeddedId
     private DataPerson dataPerson;
