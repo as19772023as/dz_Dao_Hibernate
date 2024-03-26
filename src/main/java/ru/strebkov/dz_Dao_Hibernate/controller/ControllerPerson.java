@@ -22,7 +22,7 @@ public class ControllerPerson {
         return repositoryPerson.getPersonsByCity(city);
     }
 
-    @GetMapping("/by-name") //localhost:8080/persons/by-name?city=Moscow
+    @GetMapping("/by-city/name") //localhost:8080/persons/by-city/name?city=Moscow
     public List<String> getPersonsNameByCity(@RequestParam(value = "city", required = false) String city) {
         return repositoryPerson.getPersonsNameByCity(city);
     }
