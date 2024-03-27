@@ -1,4 +1,8 @@
-insert into migration.persons
+--liquibase formatted sql
+
+--name: 2
+
+insert into migration.person
       (name, surname, age, phone_number, city_of_living)
 values('Ivan', 'Ivanov', 23, '11111111111', 'Moscow'),
       ('Oly', 'Divanov', 30, '22222222222', 'Moscow'),
