@@ -18,8 +18,8 @@ public class DataPerson {
     @Column(length = 100, nullable = false)
     private String surname;
     @Column(nullable = false)
-    @Max(150)
-    @Min(0)
+//    @Max(150)
+//    @Min(0)
     private int age;
 
 }

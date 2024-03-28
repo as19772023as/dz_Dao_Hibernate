@@ -2,29 +2,25 @@ package ru.strebkov.dz_Dao_Hibernate.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.strebkov.dz_Dao_Hibernate.entity.Person;
+import ru.strebkov.dz_Dao_Hibernate.repository.RepositoryInterface;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ServicePerson {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private RepositoryInterface repository;
 
-    @Transactional
     public List<Person> getPersonsByCity(String city) {
-        return entityManager.createQuery("select p.dataPerson from Person p where p.city_of_living = ?1")
-                .setParameter(1, city)
-                .getResultList();
+        return repository.getPersonsByCity(city);
     }
 
-    @Transactional
     public List<String> getPersonsNameByCity(String city) {
-        return entityManager.createQuery("select p.dataPerson.name from Person p where p.city_of_living = ?1")
-                .setParameter(1, city)
-                .getResultList();
+        return repository.getPersonsNameByCity(city);
     }
 
 }

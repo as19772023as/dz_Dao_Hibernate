@@ -1,6 +1,6 @@
---liquibase formatted sql
+-- liquibase formatted sql
 
---name: 2
+-- changeset Andrey:1
 
 insert into migration.person
       (name, surname, age, phone_number, city_of_living)

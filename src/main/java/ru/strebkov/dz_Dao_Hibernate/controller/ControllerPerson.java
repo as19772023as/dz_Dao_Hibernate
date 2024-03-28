@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.strebkov.dz_Dao_Hibernate.entity.Person;
 import ru.strebkov.dz_Dao_Hibernate.repository.RepositoryInterface;
+import ru.strebkov.dz_Dao_Hibernate.service.ServicePerson;
 
 import java.util.List;
 
@@ -15,16 +16,16 @@ import java.util.List;
 @RequestMapping("/persons")
 public class ControllerPerson {
 
-    private RepositoryInterface repositoryPerson;
+    private ServicePerson servicePerson;
 
     @GetMapping("/by-city") //localhost:8080/persons/by-city?city=Moscow
     public List<Person> getPersonsByCity(@RequestParam(value = "city", required = false) String city) {
-        return repositoryPerson.getPersonsByCity(city);
+        return servicePerson.getPersonsByCity(city);
     }
 
     @GetMapping("/by-name") //localhost:8080/persons/by-name?city=Moscow
     public List<String> getPersonsNameByCity(@RequestParam(value = "city", required = false) String city) {
-        return repositoryPerson.getPersonsNameByCity(city);
+        return servicePerson.getPersonsNameByCity(city);
     }
 
 }
