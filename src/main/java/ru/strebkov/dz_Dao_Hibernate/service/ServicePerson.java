@@ -1,26 +1,31 @@
 package ru.strebkov.dz_Dao_Hibernate.service;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.strebkov.dz_Dao_Hibernate.entity.Person;
-import ru.strebkov.dz_Dao_Hibernate.repository.RepositoryInterface;
+import ru.strebkov.dz_Dao_Hibernate.repository.CrudRepositoryPerson;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ServicePerson {
-    private RepositoryInterface repository;
+    private final CrudRepositoryPerson repository;
 
-    public List<Person> getPersonsByCity(String city) {
-        return repository.getPersonsByCity(city);
+    public List<Person> findByCityOfLiving(String city) {
+        return repository.findByCityOfLiving(city);
     }
 
-    public List<String> getPersonsNameByCity(String city) {
-        return repository.getPersonsNameByCity(city);
+    public List<Person> findPersonByDataPerson_AgeBeforeOrderByDataPersonAsc(Integer age) {
+        return repository.findPersonByDataPerson_AgeBeforeOrderByDataPersonAsc
+                (age);
+    }
+
+    public Optional<Person>findPersonByDataPerson_NameContainingIgnoreCaseAndAndDataPerson_SurnameContainingIgnoreCase
+            (String name, String surname){
+        return repository.findPersonByDataPerson_NameContainingIgnoreCaseAndAndDataPerson_SurnameContainingIgnoreCase
+                (name, surname);
     }
 
 }
