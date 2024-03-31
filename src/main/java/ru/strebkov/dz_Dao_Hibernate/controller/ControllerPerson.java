@@ -35,5 +35,9 @@ public class ControllerPerson {
         return servicePerson.findPersonByDataPerson_NameContainingIgnoreCaseAndAndDataPerson_SurnameContainingIgnoreCase
                 (name, surname);
     }
+    @GetMapping("/hi")
+    public String hi() {
+        return "hi, not authenticated user!";
+    }
 
 }
